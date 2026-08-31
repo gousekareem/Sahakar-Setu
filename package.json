@@ -1,0 +1,17 @@
+{
+  "name": "sahakarsetu",
+  "private": true,
+  "version": "1.0.0",
+  "description": "SahakarSetu — Cooperative Gig Services Platform for Household & Community Services (SIH26089, Ministry of Cooperation / NCCT)",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:api": "npm run dev --workspace=apps/api",
+    "dev:web": "npm run dev --workspace=apps/web",
+    "seed": "npm run seed --workspace=apps/api",
+    "build:web": "npm run build --workspace=apps/web"
+  },
+  "license": "MIT"
+}

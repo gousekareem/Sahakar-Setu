@@ -1,0 +1,38 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  api:
+    name: API — install, seed, test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install API dependencies
+        run: npm install --workspace=apps/api
+      - name: Configure environment
+        run: cp apps/api/.env.example apps/api/.env
+      - name: Seed demo database
+        run: npm run seed
+      - name: Run API test suite
+        run: npm run test --workspace=apps/api
+
+  web:
+    name: Web — install, build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install web dependencies
+        run: npm install --workspace=apps/web
+      - name: Build production bundle
+        run: npm run build:web

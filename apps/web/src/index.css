@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+
+body {
+  -webkit-font-smoothing: antialiased;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.75rem;
+}
+
+/* Accessibility mode: larger text and stronger contrast for low-vision /
+   elderly users, toggled from the navbar and persisted locally. */
+body.a11y-mode {
+  font-size: 112.5%;
+}
+body.a11y-mode .card {
+  border-width: 2px;
+}
+body.a11y-mode * {
+  letter-spacing: 0.01em;
+}
+
+.card {
+  @apply bg-white rounded-2xl border border-stone-200 shadow-sm;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-coop-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-coop-700 active:bg-coop-800 transition-colors disabled:opacity-50 disabled:pointer-events-none;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white px-4 py-2.5 text-sm font-semibold text-coop-700 border border-coop-200 hover:bg-coop-50 transition-colors disabled:opacity-50;
+}
+
+.btn-emergency {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-red-700 transition-colors;
+}
+
+.input {
+  @apply w-full rounded-xl border border-stone-300 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-coop-500 focus:border-transparent;
+}
+
+.badge {
+  @apply inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-medium;
+}
